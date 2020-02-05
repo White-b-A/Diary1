@@ -7,50 +7,26 @@
 		<meta charset="UTF-8">
 		<title>日記内容</title>
 			<script>
+				function posting(){
+					var post = confirm('投稿しますか？');
 
-	function posting(){
+					if(post){
+						window.alert('投稿しました');
+						//この後DB更新コード記述↓
+					}
+						window.alert('キャンセルしました');
+				}
 
-		// 「OK」時の処理開始 ＋ 確認ダイアログの表示
-		if(window.confirm('投稿しますか？')){
+				function deletion(){
+					var deleted = confirm('削除しますか？');
 
-			window.alert('投稿しました')
-			//location.href = "example_confirm.html"; // example_confirm.html へジャンプ
-
-		}
-		// 「OK」時の処理終了
-
-		// 「キャンセル」時の処理開始
-		else{
-
-			window.alert('キャンセルされました'); // 警告ダイアログを表示
-
-		}
-		// 「キャンセル」時の処理終了
-
-	}
-
-	function deletion(){
-
-		// 「OK」時の処理開始 ＋ 確認ダイアログの表示
-		if(window.confirm('削除しますか？')){
-
-			window.aleret('削除しました')
-			//location.href = "example_confirm.html"; // example_confirm.html へジャンプ
-
-		}
-		// 「OK」時の処理終了
-
-		// 「キャンセル」時の処理開始
-		else{
-
-			window.alert('キャンセルされました'); // 警告ダイアログを表示
-
-		}
-		// 「キャンセル」時の処理終了
-
-	}
-
-	</script>
+					if(deleted){
+						window.alert('削除しました');
+						//この後DB削除コード記述↓
+					}
+						window.alert('キャンセルしました');
+				}
+			</script>
 	</head>
 
 	<body>
@@ -59,8 +35,8 @@
 		題名:<input type="text" name="diary_title">
 		<br>
 		内容<textarea rows="20" cols="50" name="diary_content"></textarea>
-		<button type="submit" name="post" value="test" onclick="posting()">投稿</button>
-		<button type="submit" name="delete" onclick="deletion()">削除</button>
+		<button type="submit" name="post"  onclick="posting();">投稿</button>
+		<button type="submit" name="delete" onclick="deletion();">削除</button>
 		<br>
 		<button type="submit" name="back" onclick="">戻る</button>
 		</form>
