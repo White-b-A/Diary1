@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>日記内容</title>
 			<script>
+
 				function posting(){
 					var post = confirm('投稿しますか？');
 
@@ -26,17 +27,18 @@
 					}
 						window.alert('キャンセルしました');
 				}
+
 			</script>
 	</head>
 
 	<body>
-		<form action="DiaryContent" method="get">
+		<form action="DiaryContent" method="post">
 		日付:<input type="date" name="diary_date">
 		題名:<input type="text" name="diary_title">
 		<br>
 		内容<textarea rows="20" cols="50" name="diary_content"></textarea>
-		<button type="submit" name="post"  onclick="posting();">投稿</button>
-		<button type="submit" name="delete" onclick="deletion();">削除</button>
+		<button type="submit" name="posting"  onclick="posting();">投稿</button>
+		<button type="submit" name="deleted" onclick="deletion();">削除</button>
 		<br>
 		<button type="submit" name="back" onclick="">戻る</button>
 		</form>
