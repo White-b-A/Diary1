@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DiaryContent")
 public class DiaryContent extends HttpServlet {
 	public static final String DB_NAME   = "webapp2019_sgt2";
-	private final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 	public static final String HOST_NAME = "10.15.121.37:3306";
 	public static final String USER_NAME = "user_sgt2";
 	public static final String USER_PASS = "sgt2";
+	public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
