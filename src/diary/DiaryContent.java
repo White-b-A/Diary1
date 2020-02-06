@@ -37,6 +37,7 @@ public class DiaryContent extends HttpServlet {
 
 		Connection conn = null;
 		PreparedStatement ps = null;
+
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection(URL,USER_NAME,USER_PASS);
@@ -50,6 +51,7 @@ public class DiaryContent extends HttpServlet {
 			ps.setString(1, content);
 			ps.setString(2, date);
 			ps.setString(3,title);
+
 		}catch(Exception ex) {
 
 		}
