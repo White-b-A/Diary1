@@ -9,11 +9,11 @@
 			<script>
 
 				function posting(){
-					var post = confirm('投稿しますか？');
+					var posted = confirm('投稿しますか？');
 
-					if(post){
+					if(posted){
 						window.alert('投稿しました');
-						//この後DB更新コード記述↓
+
 					}
 						window.alert('キャンセルしました');
 				}
@@ -23,7 +23,7 @@
 
 					if(deleted){
 						window.alert('削除しました');
-						//この後DB削除コード記述↓
+
 					}
 						window.alert('キャンセルしました');
 				}
@@ -33,14 +33,14 @@
 
 	<body>
 		<form action="DiaryContent" method="post">
-		日付:<input type="date" name="diary_date">
-		題名:<input type="text" name="diary_title">
+		日付:<input type="date" name="diary_date" id="diary_date">
+		題名:<input type="text" name="diary_title" id="diary_titel">
 		<br>
-		内容<textarea rows="20" cols="50" name="diary_content"></textarea>
-		<button type="submit" name="posting"  onclick="posting();">投稿</button>
+		内容<textarea rows="20" cols="50" name="diary_content" id="diary_content"></textarea>
+		<button type="submit" name="posted" onclick="posting();">投稿</button>
 		<button type="submit" name="deleted" onclick="deletion();">削除</button>
 		<br>
-		<button type="submit" name="back" onclick="">戻る</button>
+		<button type="button" name="back" onclick="">戻る</button>
 		</form>
 	</body>
 </html>
