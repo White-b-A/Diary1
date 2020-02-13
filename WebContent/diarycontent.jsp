@@ -51,6 +51,7 @@
 <body>
 
 	<form action="DiaryContent" method="post">
+
 		日付:<%=request.getAttribute("date")%>
 		題名:<%=request.getAttribute("title")%>  <br>
 		内容<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
