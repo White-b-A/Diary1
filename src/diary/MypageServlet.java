@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/MypageServlet")
 public class MypageServlet extends HttpServlet {
 
-	MypageBean1 myBean1 = new MypageBean1();
+
 	MypageBean2 myBean2 = new MypageBean2();
 
 
@@ -61,11 +61,13 @@ public class MypageServlet extends HttpServlet {
 			while (rs.next()) {
 				day= rs.getString("date");
 				title = rs.getString("title");
+				MypageBean1 myBean1 = new MypageBean1();
 				myBean1.setDay(day);
 				myBean1.setTitle(title);
 				myBean2.addDiaryArray(myBean1);
 				System.out.println(day);
 				System.out.println(title);
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
