@@ -9,8 +9,9 @@
 <title>マイページ</title>
 </head>
 <body>
-<jsp:useBean id="myBean2" class="pac1.MypageBean2"
+<jsp:useBean id="myBean2" class="diary.MypageBean2"
 scope="session"	/>
+
 <%
 ArrayList<MypageBean1> getDiaryArray = myBean2.getDiaryArray();
 
@@ -18,6 +19,7 @@ for(MypageBean1 rcd : getDiaryArray){
 	out.println(rcd.getDay()+":"+rcd.getTitle()+"<br>");
 }
 %>
+
 <%=
 myBean2.getArraySize()
 %>

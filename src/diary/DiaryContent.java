@@ -29,7 +29,7 @@ public class DiaryContent extends HttpServlet {
 
 	//家用
 	public static final String DB_NAME = "sgt";
-	public static final String HOST_NAME = "10.15.121.37:3306";
+	public static final String HOST_NAME = "localhost:3306";
 	public static final String USER_NAME = "root";
 	public static final String USER_PASS = "0423";
 	public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
