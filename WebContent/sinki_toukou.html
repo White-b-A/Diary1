@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>新規投稿</title>
+<style>
+
+
+.box {
+	position: relative;
+}
+.box .submit_left{
+position: absolute;
+left: 600px;
+}
+.box .submit_right{
+position: absolute;
+right: 600px;
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="form">
+<center>
+
+<table border = "0"　width = "100%">
+<tr>
+
+
+<td width = "30%" align="left">               <!-- これで左寄せ-->         
+<div style="display:inline-block; background:#fcfcff; padding:10px; border:5px double #333333;">         
+<p>日時：
+<span id="view_clock"></span>
+
+
+<script type="text/javascript">
+timerID = setInterval('clock()',500); 
+
+function clock() {
+	document.getElementById("view_clock").innerHTML = getNow();
+}
+
+function getNow() {
+	var now = new Date();
+	var year = now.getFullYear();
+	var mon = now.getMonth()+1; 
+	var day = now.getDate();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	var sec = now.getSeconds();
+
+	var s = year + "年" + mon + "月" + day + "日" + hour + "時" + min + "分" + sec + "秒"; 
+	return s;
+}
+</script>
+</div>
+</td>
+
+
+
+<td  width = "30%" align="right">
+<div style="display:inline-block; background:#fcfcff; padding:10px; border:5px double #333333;">
+
+<form action="#" method="post">
+	<p>題名：
+	<input type="text" name="name"></p>
+
+</div>
+</td>
+
+
+
+
+</tr>
+</table>
+
+
+
+<form action = "xxx" method = "xxx">
+<p><textarea name = "messege" cols = "99" rows = "40" placeholder = "内容" >
+</textarea></p>
+
+<br>
+
+<div class="box">
+
+<input class = "submit_left" type ="submit" value = "戻る"/>
+<p><a href = "MyPage.html"></a></p>
+<input class = "submit_right" type ="submit" value = "投稿"/>
+<p><a href = "MyPage.html"></a></p>
+</div>
+
+</form>
+
+</center>
+</div>
+</body>
+</html>
