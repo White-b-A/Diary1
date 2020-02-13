@@ -54,8 +54,8 @@ public class MypageServlet extends HttpServlet {
 
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM blog");
-			
-			
+
+
 
 
 			while (rs.next()) {
