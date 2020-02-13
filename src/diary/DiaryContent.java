@@ -3,9 +3,10 @@ package diary;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+//import java.sql.PreparedStatement;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,45 +18,79 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/DiaryContent")
 public class DiaryContent extends HttpServlet {
-	public static final String DB_NAME   = "webapp2019_sgt2";
+
+	public static final String DB_NAME = "webapp2019_sgt2";
 	public static final String HOST_NAME = "10.15.121.37:3306";
 	public static final String USER_NAME = "user_sgt2";
 	public static final String USER_PASS = "sgt2";
 	public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String date = request.getParameter("diary_date");
-		String title = request.getParameter("diary_title");
-		String content = request.getParameter("diary_content");
+		String servlet_title = request.getParameter("diary_title");
+		String posted = request.getParameter("posted");
 
+		//String flag=request.getParameter("s_flag");
+		//System.out.println("postedは" + posted);
+		//System.out.println("flagは" + flag);
 
-		Connection conn = null;
-		PreparedStatement ps = null;
+		if (posted.equals("diary_post")) {
 
-		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection(URL,USER_NAME,USER_PASS);
+			String content = request.getParameter("diary_content");
+			//System.out.println(servlet_title);
 
-			Statement stmt = conn.createStatement();
+			// PreparedStatement ps = null;
 
-			String sql = "update blog set blog_string=?, day=?, title=? where id=user";
-			int num = stmt.executeUpdate(sql);
-			ps = conn.prepareStatement(sql);
+			try {
+				Class.forName("org.mariadb.jdbc.Driver");
 
-			ps.setString(1, content);
-			ps.setString(2, date);
-			ps.setString(3,title);
+				Connection conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
 
-		}catch(Exception ex) {
+				Statement stmt = conn.createStatement();
 
+				String sql = "update blog set blog_string= '" + content + "' where title= '" + servlet_title + "'";
+
+				stmt.executeUpdate(sql);
+
+				//System.out.println("更新件数" + num);
+
+				/*
+				 * ps = conn.prepareStatement(sql);
+				 *
+				 * ps.setString(1, content);
+				 */
+
+			} catch (Exception ex) {
+				System.out.println("error");
+			}
+
+		} else {
+			try {
+				Class.forName("org.mariadb.jdbc.Driver");
+
+				Connection conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
+
+				Statement stmt = conn.createStatement();
+
+				String sql = "delete from blog where title = '" + servlet_title + "'";
+				int num = stmt.executeUpdate(sql);
+				System.out.println("削除件数" + num);
+
+			} catch (Exception ex) {
+				System.out.println("error");
+			}
 		}
 
+		String path = "/DiaryContent.jsp"; // フォワード先
+	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+	    dispatcher.forward(request, response);
 	}
 
 }
