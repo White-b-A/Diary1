@@ -15,6 +15,8 @@ scope="session"	/>
 <%
 ArrayList<MypageBean1> getDiaryArray = myBean2.getDiaryArray();
 
+	out.println(getDiaryArray);
+
 for(MypageBean1 rcd : getDiaryArray){
 	out.println(rcd.getDay()+":"+rcd.getTitle()+"<br>");
 }
@@ -26,6 +28,7 @@ myBean2.getArraySize()
 
 
 <form action="sinki_toukou" method="get">
+
 	<input type="submit" value="新規投稿">
 </form>
 </body>

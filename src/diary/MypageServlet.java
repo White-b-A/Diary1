@@ -19,9 +19,17 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/MypageServlet")
 public class MypageServlet extends HttpServlet {
-	
+
 	MypageBean1 myBean1 = new MypageBean1();
 	MypageBean2 myBean2 = new MypageBean2();
+
+
+	//家用
+		public static final String DB_NAME = "sgt";
+		public static final String HOST_NAME = "localhost:3306";
+		public static final String USER_NAME = "root";
+		public static final String USER_PASS = "0423";
+		public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,21 +39,33 @@ public class MypageServlet extends HttpServlet {
 		ResultSet rs = null;
 		String day = null;
 		String title = null;
+
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://10.15.121.37:3306/webapp2019_sgt2?serverTimezone=JST",
-				"user_sgt2", "sgt2");
+			//学校用
+			//Class.forName("org.mariadb.jdbc.Driver");
+
+			//家用
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
+
+			/*			conn = DriverManager.getConnection(
+								"jdbc:mysql://10.15.121.37:3306/webapp2019_sgt2?serverTimezone=JST",
+							"user_sgt2", "sgt2");*/
+
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM blog");
+			
+			
+
 
 			while (rs.next()) {
-				day= rs.getString("day");
+				day= rs.getString("date");
 				title = rs.getString("title");
 				myBean1.setDay(day);
 				myBean1.setTitle(title);
 				myBean2.addDiaryArray(myBean1);
-				
+				System.out.println(day);
+				System.out.println(title);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,12 +89,13 @@ public class MypageServlet extends HttpServlet {
 				}
 			}
 		}
+
 		HttpSession session = request.getSession();
 		session.setAttribute("myBean2", myBean2);
 		getServletContext()
 		.getRequestDispatcher("/Mypage.jsp").forward(request, response);
-		
-		
+
+
 	}
 
 }

@@ -76,14 +76,16 @@ input[type="submit"] {
 </head>
 
 <body>
+<form action="MypageServlet" method="get">
 <div id="form">
 	<p class="form-title">Login</p>
-	
+
 	<div class="content">
 	<p>Pass</p>
 	<p class="pass"><input type="password" name="pass" id="diary_pass"  maxlength="32" autocomplete="OFF">
-	<input class="submit" type="submit" value="Login"  onclick="location:href='./Diary/MyPage.jsp'" />
+	<input type="submit" value="Login" onclick="location.href='MypageServlet.java'">
 	</div>
 </div>
+</form>
 </body>
 </html>

@@ -58,8 +58,11 @@ public class DiaryContent extends HttpServlet {
 			// PreparedStatement ps = null;
 
 			try {
-				Class.forName("org.mariadb.jdbc.Driver");
+				//学校用
+				//Class.forName("org.mariadb.jdbc.Driver");
 
+				//家用
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
 
 				Statement stmt = conn.createStatement();
@@ -82,8 +85,12 @@ public class DiaryContent extends HttpServlet {
 
 		} else {
 			try {
-				Class.forName("org.mariadb.jdbc.Driver");
 
+				//学校用
+				//Class.forName("org.mariadb.jdbc.Driver");
+
+				//家用
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
 
 				Statement stmt = conn.createStatement();
