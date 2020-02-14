@@ -107,6 +107,7 @@ public class DiaryContent extends HttpServlet {
 		String path = "/Mypage.jsp"; // フォワード先
 	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 	    dispatcher.forward(request, response);
+
 	}
 
 }

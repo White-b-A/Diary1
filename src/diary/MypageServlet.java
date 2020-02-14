@@ -20,19 +20,18 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/MypageServlet")
 public class MypageServlet extends HttpServlet {
 
-
 	MypageBean2 myBean2 = new MypageBean2();
 
-
 	//家用
-		public static final String DB_NAME = "sgt";
-		public static final String HOST_NAME = "localhost:3306";
-		public static final String USER_NAME = "root";
-		public static final String USER_PASS = "0423";
-		public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
+	public static final String DB_NAME = "sgt";
+	public static final String HOST_NAME = "localhost:3306";
+	public static final String USER_NAME = "root";
+	public static final String USER_PASS = "0423";
+	public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -55,11 +54,8 @@ public class MypageServlet extends HttpServlet {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM blog");
 
-
-
-
 			while (rs.next()) {
-				day= rs.getString("date");
+				day = rs.getString("date");
 				title = rs.getString("title");
 				MypageBean1 myBean1 = new MypageBean1();
 				myBean1.setDay(day);
@@ -95,6 +91,9 @@ public class MypageServlet extends HttpServlet {
 		getServletContext()
 		.getRequestDispatcher("/Mypage.jsp").forward(request, response);
 
+//		String path = "/sinki_toukou.html"; // フォワード先
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+//		dispatcher.forward(request, response);
 
 	}
 

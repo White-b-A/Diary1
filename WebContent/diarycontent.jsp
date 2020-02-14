@@ -15,11 +15,11 @@
 
 		if (flag) {
 
-	window.alert('投稿しました');
+			window.alert('投稿しました');
 
 		} else {
 
-	return false;
+			return false;
 
 		}
 
@@ -33,11 +33,11 @@
 
 		if (flag) {
 
-	window.alert('削除しました');
+			window.alert('削除しました');
 
 		} else {
 
-	return false;
+			return false;
 
 		}
 
@@ -53,12 +53,15 @@
 	<form action="DiaryContent" method="post">
 
 		日付:<%=request.getAttribute("date")%>
-		題名:<%=request.getAttribute("title")%>  <br>
-		内容<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
+		題名:<%=request.getAttribute("title")%>
+		<br> 内容
+		<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
 
-		<button type="submit" name="posted" value="diary_post" onclick="return posting()">投稿</button>
+		<button type="submit" name="posted" value="diary_post"
+			onclick="return posting()">投稿</button>
 
-		<button type="submit" name="posted" value="diary_delete" onclick="return deletion()">削除</button>
+		<button type="submit" name="posted" value="diary_delete"
+			onclick="return deletion()">削除</button>
 
 		<br>
 
