@@ -105,6 +105,23 @@
 			</table>
 
 
+			<script type="text/javascript">
+				function new_posting() {
+
+					var flag = confirm('投稿しますか？');
+
+					if (flag) {
+
+						window.alert('投稿しました');
+
+					} else {
+
+						return false;
+
+					}
+
+				}
+			</script>
 
 			<form action="New_postServlet" method="post">
 				<p>
@@ -115,9 +132,9 @@
 
 				<div class="box">
 
-					<button class="submit_left" type="submit" onclick="Mypage.jsp">戻る</button>
+					<button class="submit_left" type="submit" value="" onclick="">戻る</button>
 
-					<button class="submit_right" type="submit" onclick="Mypage.jsp">投稿</button>
+					<button class="submit_right" type="submit" value="new_post" onclick=" return new_posting()">投稿</button>
 
 				</div>
 
