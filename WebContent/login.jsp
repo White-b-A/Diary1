@@ -83,7 +83,7 @@ input[type="submit"] {
 	<div class="content">
 	<p>Pass</p>
 	<p class="pass"><input type="password" name="pass" id="diary_pass"  maxlength="32" autocomplete="OFF">
-	<input type="submit" value="Login" onclick="location.href='MypageServlet.java'">
+	<input type="submit" value="Login" ><!-- onclick="location.href='MypageServlet.java'" -->
 	</div>
 </div>
 </form>

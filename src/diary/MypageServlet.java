@@ -65,8 +65,6 @@ public class MypageServlet extends HttpServlet {
 				myBean1.setDay(day);
 				myBean1.setTitle(title);
 				myBean2.addDiaryArray(myBean1);
-				System.out.println(day);
-				System.out.println(title);
 
 			}
 		} catch (Exception e) {
