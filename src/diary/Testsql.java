@@ -59,6 +59,7 @@ public class Testsql extends HttpServlet {
 					stmt = conn.createStatement();
 					rs = stmt.executeQuery("SELECT * FROM blog");
 
+					//ここから2/16
 					while (rs.next()) {
 							out.println("<form action=\"Blog_StringServlet\" method=\"get\">");
 							out.println("blog =rs.getString(\"title\")");
@@ -67,6 +68,7 @@ public class Testsql extends HttpServlet {
 							out.println("<input type=\"hidden\" id=\"date\" name=\"date\" value=rs.getString(\"date\")>");
 							out.println("</form>");
 					}
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
