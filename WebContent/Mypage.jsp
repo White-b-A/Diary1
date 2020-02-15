@@ -9,21 +9,12 @@
 <title>マイページ</title>
 </head>
 <body>
-<jsp:useBean id="myBean2" class="diary.MypageBean2"
-scope="session"	/>
-
-<%
-ArrayList<MypageBean1> getDiaryArray = myBean2.getDiaryArray();
-for(MypageBean1 obj : getDiaryArray){
-	out.print(obj.getDay()+":");
-	out.println("<a href=Blog_stringServlet?titile="+obj.getTitle()+">"+obj.getTitle()+"</a>"+"<br>");
-}
-%>
+<!--<jsp:useBean id="myBean2" class="diary.MypageBean2"
+scope="session"	/>-->
 
 
 
-<form action="sinki_toukou.html" method="get">
-	<input type="submit" value="新規投稿">
-</form>
+	<input type="button" value="新規投稿" onclick="location.href='new_post.jsp'">
+
 </body>
 </html>

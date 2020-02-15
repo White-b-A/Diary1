@@ -20,6 +20,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Blog_stringServlet")
 public class Blog_stringServlet extends HttpServlet {
 
+		//家用
+		public static final String DB_NAME = "sgt";
+		public static final String HOST_NAME = "localhost:3306";
+		public static final String USER_NAME = "root";
+		public static final String USER_PASS = "0423";
+		public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
+
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -32,10 +40,15 @@ public class Blog_stringServlet extends HttpServlet {
 		String gettitle = request.getParameter("title");
 		System.out.println(gettitle);
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/web?serverTimezone=JST",
-					"root", "yassan5800");
+//			Class.forName("com.mysql.jdbc.Driver");
+//			conn = DriverManager.getConnection(
+//					"jdbc:mysql://localhost:3306/web?serverTimezone=JST",
+//					"root", "yassan5800");
+
+			//家用
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
+
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM blog where title='" + gettitle + "'");
 
