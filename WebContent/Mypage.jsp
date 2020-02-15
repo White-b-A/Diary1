@@ -23,7 +23,7 @@
 
 
 <br>
-		<button type="button" name="新規投稿" onclick="location.href='sinki_toukou.html'">新規投稿</button>
+		<button type="button" name="新規投稿" onclick="location.href='new_post.jsp'">新規投稿</button>
 
 </body>
 </html>
