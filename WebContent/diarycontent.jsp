@@ -55,8 +55,8 @@
 		日付:<%=request.getAttribute("date")%>
 		題名:<%=request.getAttribute("title")%>
 
-		<input type="hidden" id="title" name="dairy_title" value="<%=request.getAttribute("title")%>">
-
+		<input type="hidden" id="title" name="diary_title" value="<%=request.getAttribute("title")%>">
+		<input type="hidden" id="date" name="diary_date" value="<%=request.getAttribute("date")%>">
 		<br> 内容
 		<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
 

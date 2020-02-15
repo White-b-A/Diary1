@@ -53,7 +53,7 @@ public class DiaryContent extends HttpServlet {
 		if (posted.equals("diary_post")) {
 
 			String content = request.getParameter("diary_content");
-			//System.out.println(servlet_title);
+
 
 			// PreparedStatement ps = null;
 
