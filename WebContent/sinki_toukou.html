@@ -32,8 +32,9 @@
 						<div
 							style="display: inline-block; background: #fcfcff; padding: 10px; border: 5px double #333333;">
 							<p>
+							<form action="New_postServlet" method="post">
 								日時： <span id="view_clock"></span>
-
+							</form>
 
 								<script type="text/javascript">
 									timerID = setInterval('clock()', 500);
@@ -82,25 +83,17 @@
 								</script>
 						</div>
 					</td>
-
-
-
 					<td width="0" align="right">
 						<div
 							style="display: inline-block; background: #fcfcff; padding: 10px; border: 5px double #333333;">
 
-							<form action="#" method="post">
+							<form action="New_postServlet" method="post">
 								<p>
-									題名： <input type="text" name="name">
+									題名： <input type="text" name="new_title" value="">
 								</p>
 							</form>
-
 						</div>
 					</td>
-
-
-
-
 				</tr>
 			</table>
 
@@ -134,7 +127,8 @@
 
 					<button class="submit_left" type="submit" value="" onclick="">戻る</button>
 
-					<button class="submit_right" type="submit" value="new_post" onclick=" return new_posting()">投稿</button>
+					<button class="submit_right" type="submit" name="post"
+						value="new_post" onclick=" return new_posting()">投稿</button>
 
 				</div>
 
