@@ -64,6 +64,7 @@
 			onclick="return posting()">投稿</button>
 
 	</form>
-	<button type="button" name="back" onclick="location.href='Testsql.java'">戻る</button>
+	<button type="button" name="back" onclick="location.href='/Diary/Testsql'">戻る</button>
+
 </body>
 </html>

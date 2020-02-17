@@ -39,7 +39,7 @@ public class DiaryContent extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
@@ -104,7 +104,7 @@ public class DiaryContent extends HttpServlet {
 			}
 		}
 
-		String path = "/Testsql.java"; // フォワード先
+		String path = "/Testsql"; // フォワード先
 	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 	    dispatcher.forward(request, response);
 

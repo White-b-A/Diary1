@@ -50,7 +50,7 @@
 
 <body>
 
-	<form action="DiaryContent" method="post">
+	<form action="DiaryContent" method="get">
 <% String date = (String)session.getAttribute("date"); %>
 <% String title = (String)session.getAttribute("title"); %>
 <% String blog = (String)session.getAttribute("blog"); %>
@@ -73,7 +73,7 @@
 
 		<br>
 
-		<button type="submit" name="back" onclick="Mypage.jsp">戻る</button>
+		<button type="button" name="back" onclick="location.href='/Diary/Testsql'">戻る</button>
 	</form>
 </body>
 </html>
