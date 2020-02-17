@@ -28,6 +28,11 @@ public class Testsql extends HttpServlet {
 		public static final String USER_PASS = "0423";
 		public static final String URL = "jdbc:mysql://" + HOST_NAME + "/" + DB_NAME + "?serverTimezone=JST";
 
+		@Override
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        // TODO Auto-generated method stub
+	        this.doGet(request, response);
+	    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
