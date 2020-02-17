@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,27 +42,57 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		String blog = null;
-		String date = null;
-		String title = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        String password = null;
+
+        try {
+
+            //家用
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM db_user");
 
 
-		try {
-			//学校用
-			//Class.forName("org.mariadb.jdbc.Driver");
+            while (rs.next()) {
+                    password =rs.getString("password");
+                    System.out.println(password);
+            }
 
-			//家用
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(URL, USER_NAME, USER_PASS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        String ninnsyou_password=request.getParameter("password");
+        if(ninnsyou_password.equals(password)) {
+        	//成功処理
+        	String path = "/Testsql"; // フォワード先
+    	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+    	    dispatcher.forward(request, response);
+    	    System.out.println("成功");
+        }else {
+            response.sendRedirect("login.jsp");    //パスワード認証失敗した時
+            System.out.println("失敗");
+        }
 
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM blog where title=");
-			
-			
-		} catch (Exception ex) {
-			System.out.println("error");
-		}
 	}
 }

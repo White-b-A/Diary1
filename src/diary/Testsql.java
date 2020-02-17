@@ -64,7 +64,7 @@ public class Testsql extends HttpServlet {
 							String title =rs.getString("title");
 							String date =rs.getString("date");
 							String blog =rs.getString("blog_string");
-							out.println("<form action=\"Blog_stringServlet\" method=\"get\">");
+							out.println("<form action=\"Blog_stringServlet\" method=\"post\">");
 							//out.println(title);
 							out.println("<input type=\"submit\" name="+title+" value="+ title+">");
 							System.out.println(title);
