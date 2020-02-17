@@ -54,8 +54,8 @@
 <body>
 	<form action="New_postServlet" method="post">
 
-		日付:<input type="date" id="today" name="date" readonly> 
-		題名:<input type="text" name="title"> <br> 
+		日付:<input type="date" id="today" name="date" readonly>
+		題名:<input type="text" name="title"> <br>
 		内容<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
 
 		<br>
@@ -64,6 +64,6 @@
 			onclick="return posting()">投稿</button>
 
 	</form>
-	<button type="button" name="back" onclick="location.href='Mypage.jsp'">戻る</button>
+	<button type="button" name="back" onclick="location.href='Testsql.java'">戻る</button>
 </body>
 </html>

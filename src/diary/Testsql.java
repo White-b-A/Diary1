@@ -35,7 +35,7 @@ public class Testsql extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out =response.getWriter();
-		out.println("<DOCTTYPE html>");
+		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<meta charset=\"UTF-8\"/>");
@@ -59,15 +59,21 @@ public class Testsql extends HttpServlet {
 					stmt = conn.createStatement();
 					rs = stmt.executeQuery("SELECT * FROM blog");
 
-					//ここから2/16
+
 					while (rs.next()) {
-							out.println("<form action=\"Blog_StringServlet\" method=\"get\">");
-							out.println("blog =rs.getString(\"title\")");
-							out.println("<a href=\" >rs.getString(\"title\")</a>");
-							out.println("<input type=\"hidden\" id=\"title\" name=\"title\" value=rs.getString(\"title\")>");
-							out.println("<input type=\"hidden\" id=\"date\" name=\"date\" value=rs.getString(\"date\")>");
+							String title =rs.getString("title");
+							String date =rs.getString("date");
+							String blog =rs.getString("blog_string");
+							out.println("<form action=\"Blog_stringServlet\" method=\"get\">");
+							//out.println(title);
+							out.println("<input type=\"submit\" name="+title+" value="+ title+">");
+							System.out.println(title);
+							out.println("<input type=\"hidden\" id=\"title\" name=\"title\" value="+ title +">");
+							out.println("<input type=\"hidden\" id=\"date\" name=\"date\" value="+ date +">");
+							out.println("<input type=\"hidden\" id=\"blog\" name=\"blog\" value="+ blog +">");
 							out.println("</form>");
 					}
+					out.println("<input type=\"button\" value=\"新規投稿\" onclick=\"location.href='./new_post.jsp'\">");
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -92,6 +98,7 @@ public class Testsql extends HttpServlet {
 					}
 				}
 		out.println("</body>");
-		out.println("</html>");	}
+		out.println("</html>");
+		}
 
 }

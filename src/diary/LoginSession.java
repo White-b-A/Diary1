@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 public class LoginSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String password = "xxx";
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -34,27 +35,32 @@ public class LoginSession extends HttpServlet {
 		String login_password = "xxx";
 		HttpSession session = request.getSession(false);
 
-		if(session != null) {
+		if (session != null) {
 			String url = request.getParameter("url");
 			session.setMaxInactiveInterval(86400);
 			response.sendRedirect(url);
+			System.out.println(url);
 			System.out.println("have session");
-		}else {
+		} else {
 			login_password = request.getParameter("");
-			if(login_password != null) {
-				if(login_password.equals(password)){
+			if (login_password != null) {
+				if (login_password.equals(password)) {
 					System.out.println("login");
 					session = request.getSession(true);
 					session.setMaxInactiveInterval(86400);
 					//response.sendRedirect("");
-				}else {
+				} else {
 					System.out.println("miss");
 					//response.sendRedirect("");
 				}
-			}else {
+			} else {
 				response.sendRedirect("NoSession.html");
 			}
 		}
+
+		//		String path = "/MypageServlet.java"; // フォワード先
+		//	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		//	    dispatcher.forward(request, response);
 	}
 
 }

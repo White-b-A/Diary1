@@ -65,7 +65,7 @@ public class New_postServlet extends HttpServlet {
 
 		}
 
-		String path = "/Mypage.jsp"; // フォワード先
+		String path = "/new_post.jsp"; // フォワード先
 	    RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 	    dispatcher.forward(request, response);
 

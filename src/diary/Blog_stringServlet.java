@@ -36,7 +36,10 @@ public class Blog_stringServlet extends HttpServlet {
 		Statement stmt = null;
 		ResultSet rs = null;
 		String blog = null;
-		//jspからタイトルをもってきたい
+		String date = null;
+		String title = null;
+
+
 		String gettitle = request.getParameter("title");
 		System.out.println(gettitle);
 		try {
@@ -53,6 +56,8 @@ public class Blog_stringServlet extends HttpServlet {
 			rs = stmt.executeQuery("SELECT * FROM blog where title='" + gettitle + "'");
 
 			while (rs.next()) {
+				date = rs.getString("date");
+				title = rs.getString("title");
 				blog = rs.getString("blog_string");
 			}
 		} catch (Exception e) {
@@ -80,6 +85,8 @@ public class Blog_stringServlet extends HttpServlet {
 
 		System.out.println(blog);
 
+		request.setAttribute("date", date);
+		request.setAttribute("title", title);
 		request.setAttribute("blog", blog);
 
 		String path = "/blog_string.jsp"; // フォワード先

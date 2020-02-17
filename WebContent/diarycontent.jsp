@@ -51,14 +51,19 @@
 <body>
 
 	<form action="DiaryContent" method="post">
+<% String date = (String)session.getAttribute("date"); %>
+<% String title = (String)session.getAttribute("title"); %>
+<% String blog = (String)session.getAttribute("blog"); %>
+<% System.out.println(date); %>
+<% System.out.println(title); %>
+<% System.out.println(blog); %>
+		日付:<%=date %>
+		題名:<%=title%>
 
-		日付:<%=request.getAttribute("date")%>
-		題名:<%=request.getAttribute("title")%>
-
-		<input type="hidden" id="title" name="diary_title" value="<%=request.getAttribute("title")%>">
-		<input type="hidden" id="date" name="diary_date" value="<%=request.getAttribute("date")%>">
+		<input type="hidden" id="title" name="diary_title" value="<%=title%>">
+		<input type="hidden" id="date" name="diary_date" value="<%=date%>">
 		<br> 内容
-		<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
+		<textarea rows="20" cols="50" id="diary_content" name="diary_content"><%=blog%></textarea>
 
 		<button type="submit" name="posted" value="diary_post"
 			onclick="return posting()">投稿</button>

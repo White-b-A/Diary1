@@ -89,7 +89,7 @@ public class MypageServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("myBean2", myBean2);
 		getServletContext()
-		.getRequestDispatcher("/Mypage.jsp").forward(request, response);
+		.getRequestDispatcher("/Testsql.java").forward(request, response);
 
 //		String path = "/sinki_toukou.html"; // フォワード先
 //		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
