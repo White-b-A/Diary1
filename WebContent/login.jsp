@@ -76,14 +76,14 @@ input[type="submit"] {
 </head>
 
 <body>
-<form action="Testsql" method="get">
+<form action="LoginServlet" method="post">
 <div id="form">
 	<p class="form-title">Login</p>
 
 	<div class="content">
 	<p>Pass</p>
 	<p class="pass"><input type="password" name="password" id="diary_pass"  maxlength="32" autocomplete="OFF">
-	<input type="submit" value="Login" ><!-- onclick="location.href='LoginSessoin.java?url=Mypage.jsp'"  -->
+	<input type="submit"  name="pass" value="Login" ><!-- onclick="location.href='LoginSessoin.java?url=Mypage.jsp'"  -->
 	</div>
 </div>
 </form>
