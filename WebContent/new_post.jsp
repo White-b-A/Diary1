@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="sgt.css" type="text/css" />
 <meta charset="UTF-8">
 <title>新規投稿</title>
 
@@ -52,19 +53,23 @@
 
 </head>
 <body>
-	<form action="New_postServlet" method="post">
 
-		日付:<input type="date" id="today" name="date" readonly>
-		題名:<input type="text" name="title"> <br>
+	<form action="New_postServlet" class="form1" method="post">
+
+
+			日付:<input type="date" name="date">&nbsp;&nbsp;&nbsp;題名:<input type="text" name="title">
+
+
+		<br>
 		内容<textarea rows="20" cols="50" id="diary_content" name="diary_content"></textarea>
 
 		<br>
 
-		<button type="submit" name="posted" value="new_post"
+		<button class="button" type="submit" name="posted" value="new_post"
 			onclick="return posting()">投稿</button>
-
+		<button class="button" type="button" name="back" onclick="location.href='/Diary/Testsql'">戻る</button>
 	</form>
-	<button type="button" name="back" onclick="location.href='/Diary/Testsql'">戻る</button>
+
 
 </body>
 </html>

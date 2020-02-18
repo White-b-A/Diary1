@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="sgt.css" type="text/css" />
+<link rel="stylesheet" href="sgt2.css" type="text/css" />
 <meta charset="UTF-8">
 <title>ブログ内容</title>
 
@@ -14,7 +14,7 @@
 <% String title = (String)request.getAttribute("title"); %>
 <% String blog = (String)request.getAttribute("blog"); %>
 	<div class ="box17">
-	日付:<%=date %>&nbsp;&nbsp;&nbsp;題名<%=title %>
+	日付:<%=date %>&nbsp;&nbsp;&nbsp;題名:<%=title %>
 	</div>
 	<br>
 	<div class="box28">

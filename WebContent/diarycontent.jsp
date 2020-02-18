@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="sgt.css" type="text/css" />
+<link rel="stylesheet" href="sgt.css" type="text/css"  />
+
 <meta charset="UTF-8">
 <title>日記内容</title>
 
@@ -78,7 +79,7 @@
 			<h1>更新画面</h1>
 
 
-			<div class="box17">
+			<div id="box17">
 				日付:<%=date%>&nbsp;&nbsp;&nbsp;題名:<%=title%>
 			</div>
 

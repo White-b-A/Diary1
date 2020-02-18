@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"  import="javax.servlet.http.HttpSession,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -76,16 +76,21 @@ input[type="submit"] {
 </head>
 
 <body>
-<form action="LoginServlet" method="post">
-<div id="form">
-	<p class="form-title">Login</p>
 
-	<div class="content">
-	<p>Pass</p>
-	<p class="pass"><input type="password" name="password" id="diary_pass"  maxlength="32" autocomplete="OFF">
-	<input type="submit"  name="pass" value="Login" ><!-- onclick="location.href='LoginSessoin.java?url=Mypage.jsp'"  -->
-	</div>
-</div>
-</form>
+
+
+
+    	<form action="LoginServlet" method="post">
+    	<div id="form">
+    		<p class="form-title">Login</p>
+
+    		<div class="content">
+    		<p>Pass</p>
+    		<p class="pass"><input type="password" name="password" id="diary_pass"  maxlength="32" autocomplete="OFF">
+    		<input type="submit"  name="pass" value="Login" ><!-- onclick="location.href='LoginSessoin.java?url=Mypage.jsp'"  -->
+    		</div>
+    	</div>
+    	</form>
+
 </body>
 </html>
