@@ -43,8 +43,9 @@ public class Testsql extends HttpServlet {
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
+		out.println("<link rel=\"stylesheet\" href=\"sgt.css\" type=\"text/css\" />");
 		out.println("<meta charset=\"UTF-8\"/>");
-		out.println("<title>aaa</title>");
+		out.println("<title>Main Page</title>");
 		out.println("</head>");
 		out.println("<body>");
 				Connection conn = null;
@@ -64,6 +65,8 @@ public class Testsql extends HttpServlet {
 					stmt = conn.createStatement();
 					rs = stmt.executeQuery("SELECT * FROM blog");
 
+					out.println("<div class = \"form1\"> ");
+					out.println("<h1>Mypage ");
 
 					while (rs.next()) {
 							String title =rs.getString("title");
@@ -71,15 +74,15 @@ public class Testsql extends HttpServlet {
 							String blog =rs.getString("blog_string");
 							out.println("<form action=\"Blog_stringServlet\" method=\"post\">");
 							//out.println(title);
-							out.println("<input type=\"submit\" name="+title+" value="+ title+">");
+							out.println("<input class =\"button\" type=\"submit\" name="+title+" value="+ title+">");
 							System.out.println(title);
 							out.println("<input type=\"hidden\" id=\"title\" name=\"title\" value="+ title +">");
 							out.println("<input type=\"hidden\" id=\"date\" name=\"date\" value="+ date +">");
 							out.println("<input type=\"hidden\" id=\"blog\" name=\"blog\" value="+ blog +">");
 							out.println("</form>");
 					}
-					out.println("<input type=\"button\" value=\"新規投稿\" onclick=\"location.href='./new_post.jsp'\">");
-
+					out.println("<input class =\"button\" type=\"button\" value=\"new post\" onclick=\"location.href='./new_post.jsp'\">");
+					out.println("</div>");
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -103,6 +106,7 @@ public class Testsql extends HttpServlet {
 					}
 				}
 		out.println("</body>");
+
 		out.println("</html>");
 		}
 

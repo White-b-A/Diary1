@@ -4,8 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="sgt.css" type="text/css" />
 <meta charset="UTF-8">
 <title>日記内容</title>
+
+
+
 
 
 <script type="text/javascript">
@@ -50,39 +54,58 @@
 
 <body>
 
-	<form action="DiaryContent" method="get">
-<% String date = (String)session.getAttribute("date"); %>
-<% String title = (String)session.getAttribute("title"); %>
-<% String blog = (String)session.getAttribute("blog"); %>
-<% System.out.println(date); %>
-<% System.out.println(title); %>
-<% System.out.println(blog); %>
-		日付:<%=date %>
-		題名:<%=title%>
+		<form  action="DiaryContent" class="form1" method="get">
+			<%
+				String date = (String) session.getAttribute("date");
+			%>
+			<%
+				String title = (String) session.getAttribute("title");
+			%>
+			<%
+				String blog = (String) session.getAttribute("blog");
+			%>
+			<%
+				System.out.println(date);
+			%>
+			<%
+				System.out.println(title);
+			%>
+			<%
+				System.out.println(blog);
+			%>
 
-		<input type="hidden" id="title" name="diary_title" value="<%=title%>">
-		<input type="hidden" id="date" name="diary_date" value="<%=date%>">
-		<br> 内容
-		<textarea rows="20" cols="50" id="diary_content" name="diary_content"><%=blog%></textarea>
 
-		<button type="submit" name="posted" value="diary_post"
-			onclick="return posting()">投稿</button>
+			<h1>更新画面</h1>
 
-		<button type="submit" name="posted" value="diary_delete"
-			onclick="return deletion()">削除</button>
 
-		<br>
+			<div class="box17">
+				日付:<%=date%>&nbsp;&nbsp;&nbsp;題名:<%=title%>
+			</div>
 
-		<button type="button" name="back" onclick="location.href='/Diary/Testsql'">戻る</button>
-	</form>
+
+
+
+			<input type="hidden" id="title" name="diary_title" value="<%=title%>">
+			<input type="hidden" id="date" name="diary_date" value="<%=date%>">
+			<br>
+			<p>
+			内容
+			<br>
+			<textarea  class="textlines" rows="20" cols="50" name="diary_content"><%=blog%></textarea>
+			</p>
+			<br>
+			<button class ="button" type="submit" name="posted" value="diary_post"
+				onclick="return posting()">投稿</button>
+
+			<button  class ="button" type="submit"  name="posted" value="diary_delete"
+				onclick="return deletion()">削除</button>
+
+
+
+			<button class ="button" type="button" name="back"
+				onclick="location.href='./Testsql'">戻る</button>
+		</form>
 </body>
 </html>
 
 
-
-
-
-
-
-
-<!-- name="posted" id="diary_post" -->

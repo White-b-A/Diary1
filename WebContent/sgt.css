@@ -1,1 +1,106 @@
 @charset "UTF-8";
+
+.box17{
+	display:inline-block;
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.box17:before {left: 10px;}
+.box17:after {right: 10px;}
+.box17 p {
+    margin: 0;
+    padding: 0;
+}
+
+.box28 {
+    position: relative;
+    display: inline-block;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 2px ;
+}
+.box28 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: black;
+    color: #ffffff;
+    font-weight: bold;
+}
+.box28 p {
+    margin: 0;
+    padding: 0;
+}
+
+.textlines {
+    border: 2px solid ;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    padding: 0.5em;          /* 内側の余白量 */
+    background-color: snow;  /* 背景色 */
+    width: 20em;             /* 横幅 */
+    height: 120px;           /* 高さ */
+    font-size: 1em;          /* 文字サイズ */
+    line-height: 1.2;        /* 行の高さ */
+}
+
+
+.form1 {
+	width: 300px;
+    margin: 10px auto;
+    padding: 300px;
+    border: 1px solid #555;
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.form2 {
+	width: 300px;
+    margin: 10px auto;
+    padding: 300px;
+    border: 1px solid #555;
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.button {
+margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+	padding: 10px 20px;
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		to(#ffffff));
+	background: linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff);
+	border-radius: 21px;
+	border: 1px solid #000000;
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.1),
+		0px 1px 0px rgba(255,255,255,1);
+}
+
+input[type="submit"] {
+
+}

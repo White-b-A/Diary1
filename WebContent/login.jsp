@@ -13,7 +13,7 @@ body {
 }
 
 body,p,form,input {
-	margin: 0;
+	margin: 0
 }
 
 #form {
